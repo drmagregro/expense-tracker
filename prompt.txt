@@ -1,0 +1,14 @@
+Analyse cette image de note de frais et retourne un objet JSON avec exactement ces champs :
+
+{
+  "type_document": "restaurant | transport | hôtel | autre",
+  "fournisseur": "nom du commerce ou de la compagnie",
+  "date": "JJ/MM/AAAA",
+  "montant_ttc": 00.00,
+  "tva": 00.00 ou null,
+  "devise": "EUR par défaut",
+  "description": "courte description du motif de la dépense",
+  "confiance": "haute | moyen | basse"
+}
+
+Retourne uniquement ce JSON, sans texte avant ou après, sans balises markdown.
