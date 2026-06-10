@@ -1,1 +1,54 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes de Frais</title>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <header>
+    <span class="logo">💼 NotesFrais</span>
+    <span class="subtitle">Gestion automatique des justificatifs</span>
+  </header>
+
+  <main>
+
+    <!-- ÉTAPE 1 : Upload -->
+    <section id="upload-section">
+      <div id="drop-zone">
+        <div class="drop-icon">📎</div>
+        <p class="drop-label">Glisse une photo ici</p>
+        <p class="drop-sub">ou</p>
+        <label class="btn-upload" for="file-input">Choisir un fichier</label>
+        <input type="file" id="file-input" accept="image/*" capture="environment" hidden />
+      </div>
+
+      <div id="preview-container" class="hidden">
+        <img id="preview-img" src="" alt="Aperçu" />
+        <button id="btn-analyze" class="btn-primary">
+          <span class="btn-icon">🔍</span> Analyser
+        </button>
+        <button id="btn-reset-upload" class="btn-ghost">Changer de photo</button>
+      </div>
+    </section>
+
+    <!-- ÉTAPE 2 : Formulaire (injecté par HTMX) -->
+    <section id="form-container"></section>
+
+    <!-- ÉTAPE 3 : Confirmation (injectée par HTMX) -->
+    <section id="confirmation-container"></section>
+
+    <!-- Loader -->
+    <div id="loader" class="hidden">
+      <div class="spinner"></div>
+      <p>Analyse en cours…</p>
+    </div>
+
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
